@@ -8,95 +8,293 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Link to external CSS file -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+    }
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3 {
+      margin: 0.5rem 0;
+    }
+    p {
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(30, 30, 60, 0.9);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 30px #ffd700aa;
+      position: relative;
+      margin: 3rem 0;
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid #ffd700;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 15px #ffd700cc;
+    }
+    .hero-subtitle {
+      font-weight: 300;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #ffd700cc;
+    }
+    
+    /* Navigation bar for sections */
+    nav.navbar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    nav.navbar button {
+      background: transparent;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    nav.navbar button:hover,
+    nav.navbar button.active {
+      background: #ffd700;
+      color: #1a1a2e;
+      box-shadow: 0 0 10px #ffd700;
+      transform: scale(1.05);
+    }
+
+    /* Slides container */
+    .slides {
+      position: relative;
+      min-height: 300px;
+    }
+
+    /* Each slide */
+    .slide {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+      overflow-y: auto;
+      padding-right: 10px; /* for scrollbar space */
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+    }
+
+    /* Scrollbar styling for slides */
+    .slide::-webkit-scrollbar {
+      width: 8px;
+    }
+    .slide::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .slide::-webkit-scrollbar-thumb {
+      background: #ffd700aa;
+      border-radius: 4px;
+    }
+
+    /* Projects grid */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ffd70055;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px #ffd700cc;
+    }
+
+    /* Contact links */
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      font-size: 1.8rem;
+      color: #ffd700cc;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .contact-links a:hover {
+      color: #ffd700;
+      transform: scale(1.2);
+    }
+
+    /* Footer */
+    footer.footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .project-card {
+        font-size: 0.9rem;
+      }
+      nav.navbar {
+        flex-wrap: wrap;
+      }
+      nav.navbar button {
+        flex: 1 1 100px;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
-  <main class="container">
+  <div class="container">
 
-    <section class="hero" aria-label="Introduction">
+    <div class="hero">
       <img src="images/my-photo.jpg" alt="Sharad Karmacharya" class="hero-img" />
       <h1>Hi, I'm Sharad Karmacharya</h1>
-      <p class="hero-subtitle" aria-live="polite">CS student & aspiring developer passionate about turning ideas into code</p>
-      <a href="#projects" class="btn" role="button">View My Projects</a>
-    </section>
+      <p class="hero-subtitle">CS student & aspiring developer passionate about turning ideas into code</p>
+    </div>
 
-    <section aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
-    </section>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <button class="nav-btn active" data-target="about">About Me</button>
+      <button class="nav-btn" data-target="projects">Projects</button>
+      <button class="nav-btn" data-target="contact">Contact Me</button>
+    </nav>
 
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
-      <div class="projects">
-        <article class="project-card" tabindex="0">
-          <h3>MyFirstProject</h3>
-          <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
-        </article>
-        <article class="project-card" tabindex="0">
-          <h3>Second Project</h3>
-          <p>More projects coming soon! Stay tuned.</p>
-        </article>
-      </div>
-    </section>
+    <div class="slides">
 
-    <section aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact Me</h2>
-      <p>Feel free to reach out to me on any platform below!</p>
-      <nav class="contact-links" aria-label="Social media and contact links">
-        <a href="mailto:sharadkarmachrya.63@gmail.com" target="_blank" aria-label="Email Sharad Karmacharya" rel="noopener noreferrer">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank" aria-label="Facebook profile" rel="noopener noreferrer">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank" aria-label="YouTube channel" rel="noopener noreferrer">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.instagram.com/_sharadkarma_/" target="_blank" aria-label="Instagram profile" rel="noopener noreferrer">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank" aria-label="Twitter profile" rel="noopener noreferrer">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn profile" rel="noopener noreferrer">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub profile" rel="noopener noreferrer">
-          <i class="fab fa-github"></i>
-        </a>
-      </nav>
-    </section>
+      <section class="slide active" id="about" tabindex="0" aria-labelledby="about-heading" role="region">
+        <h2 id="about-heading">About Me</h2>
+        <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
+      </section>
+
+      <section class="slide" id="projects" tabindex="0" aria-labelledby="projects-heading" role="region">
+        <h2 id="projects-heading">Projects</h2>
+        <div class="projects">
+          <div class="project-card">
+            <h3>MyFirstProject</h3>
+            <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="project-card">
+            <h3>Second Project</h3>
+            <p>More projects coming soon! Stay tuned.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="contact" tabindex="0" aria-labelledby="contact-heading" role="region">
+        <h2 id="contact-heading">Contact Me</h2>
+        <p>Feel free to reach out to me on any platform below!</p>
+        <div class="contact-links">
+          <a href="mailto:sharadkarmachrya.63@gmail.com" target="_blank" aria-label="Email Sharad Karmacharya" rel="noopener noreferrer">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank" aria-label="Facebook profile" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank" aria-label="YouTube channel" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.instagram.com/_sharadkarma_/" target="_blank" aria-label="Instagram profile" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank" aria-label="Twitter profile" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn profile" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub profile" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+
+    </div>
 
     <footer class="footer" role="contentinfo">
       <p>© 2025 Sharad Karmacharya. All rights reserved.</p>
     </footer>
 
-  </main>
+  </div>
 
   <script>
-    // Intersection Observer to add 'visible' class for fade-in animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Optionally unobserve if you want animation only once
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    // Navigation buttons to switch slides
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const slides = document.querySelectorAll('.slide');
 
-    // Observe container, each project card, and contact links for animation
-    const elementsToObserve = document.querySelectorAll('.container, .project-card, .contact-links a');
-    elementsToObserve.forEach(el => observer.observe(el));
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active classes
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Add active to clicked button and corresponding slide
+        button.classList.add('active');
+        const targetId = button.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+
+        // Focus slide for accessibility
+        document.getElementById(targetId).focus();
+      });
+    });
   </script>
 
 </body>
 </html>
+
 
 
 
