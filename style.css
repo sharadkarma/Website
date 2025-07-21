@@ -280,6 +280,37 @@ p.visible {
   }
 }
 
+/* --------------------------
+   Light theme overrides
+--------------------------- */
+[data-theme="light"] {
+  --color-bg-start: #f0f0f0;
+  --color-bg-end: #dcdcdc;
+  --color-text-light: #222;
+  --color-text-muted: #555;
+  --color-container-bg: rgba(255, 255, 255, 0.85);
+  --color-container-shadow: #999999cc;
+}
+
+[data-theme="light"] .btn {
+  color: #000;
+}
+
+[data-theme="light"] a {
+  color: var(--color-primary);
+}
+
+[data-theme="light"] .project-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .contact-links a {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--color-primary);
+}
+
+
 
 
 

@@ -1,299 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sharad Karmacharya | Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sharad Karmacharya | Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: #eee;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 1rem;
-    }
-    a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    h1, h2, h3 {
-      margin: 0.5rem 0;
-    }
-    p {
-      line-height: 1.5;
-      color: #ccc;
-    }
+<!-- Typed.js for typing effect -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: rgba(30, 30, 60, 0.9);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 0 30px #ffd700aa;
-      position: relative;
-      margin: 3rem 0;
-      min-height: 500px;
-      overflow: hidden;
-    }
+<!-- SEO & Open Graph -->
+<meta name="description" content="Portfolio of Sharad Karmacharya, CS student & aspiring developer in Germany. Showcasing projects, skills, and contact info.">
+<meta property="og:title" content="Sharad Karmacharya | Portfolio">
+<meta property="og:description" content="CS student & aspiring developer passionate about turning ideas into code.">
+<meta property="og:image" content="images/my-photo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sharad Karmacharya | Portfolio">
+<meta name="twitter:description" content="CS student & aspiring developer passionate about turning ideas into code.">
+<meta name="twitter:image" content="images/my-photo.jpg">
 
-    /* Hero section */
-    .hero {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .hero-img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 3px solid #ffd700;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 15px #ffd700cc;
-    }
-    .hero-subtitle {
-      font-weight: 300;
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: #ffd700cc;
-    }
-    
-    /* Navigation bar for sections */
-    nav.navbar {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    nav.navbar button {
-      background: transparent;
-      border: 2px solid #ffd700;
-      color: #ffd700;
-      padding: 0.5rem 1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-    nav.navbar button:hover,
-    nav.navbar button.active {
-      background: #ffd700;
-      color: #1a1a2e;
-      box-shadow: 0 0 10px #ffd700;
-      transform: scale(1.05);
-    }
+<style>
+  :root {
+    --bg-color: linear-gradient(135deg, #1a1a2e, #16213e);
+    --text-color: #eee;
+    --primary-color: #ffd700;
+    --card-bg: rgba(30, 30, 60, 0.9);
+    --subtitle-color: #ffd700cc;
+  }
+  body.light-mode {
+    --bg-color: #f5f5f5;
+    --text-color: #222;
+    --primary-color: #1a1a2e;
+    --card-bg: #fff;
+    --subtitle-color: #555;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+  a { color: var(--primary-color); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { margin: 0.5rem 0; }
+  p { line-height: 1.5; color: var(--subtitle-color); }
 
-    /* Slides container */
-    .slides {
-      position: relative;
-      min-height: 300px;
-    }
+  .container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 30px var(--primary-color);
+    margin: 3rem 0;
+  }
 
-    /* Each slide */
-    .slide {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.5s ease;
-      overflow-y: auto;
-      padding-right: 10px; /* for scrollbar space */
-    }
-    .slide.active {
-      opacity: 1;
-      visibility: visible;
-      position: relative;
-    }
+  .hero {
+    text-align: center; margin-bottom: 2rem;
+  }
+  .hero-img {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    object-fit: cover; margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 15px var(--primary-color); }
+    50% { box-shadow: 0 0 25px var(--primary-color); }
+    100% { box-shadow: 0 0 15px var(--primary-color); }
+  }
+  .hero-subtitle { font-weight: 300; font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--subtitle-color); }
 
-    /* Scrollbar styling for slides */
-    .slide::-webkit-scrollbar {
-      width: 8px;
-    }
-    .slide::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .slide::-webkit-scrollbar-thumb {
-      background: #ffd700aa;
-      border-radius: 4px;
-    }
+  nav.navbar {
+    display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+  }
+  nav.navbar button {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    flex: 1 1 100px;
+  }
+  nav.navbar button:hover,
+  nav.navbar button.active {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    transform: scale(1.1);
+  }
 
-    /* Projects grid */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #ffd70055;
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px #ffd700cc;
-    }
+  .toggle-theme {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .toggle-theme:hover {
+    color: var(--primary-color);
+    transform: rotate(20deg);
+  }
 
-    /* Contact links */
-    .contact-links {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-    .contact-links a {
-      font-size: 1.8rem;
-      color: #ffd700cc;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .contact-links a:hover {
-      color: #ffd700;
-      transform: scale(1.2);
-    }
+  .slides { position: relative; min-height: 300px; }
+  .slide {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0; visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    overflow-y: auto;
+  }
+  .slide.active {
+    opacity: 1; visibility: visible;
+    transform: translateY(0);
+    position: relative;
+  }
 
-    /* Footer */
-    footer.footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 2rem;
-    }
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .project-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem; border-radius: 12px;
+    box-shadow: 0 0 10px var(--primary-color);
+    transition: transform 0.3s ease;
+  }
+  body.light-mode .project-card {
+    background: #fafafa;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px var(--primary-color);
+  }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      .project-card {
-        font-size: 0.9rem;
-      }
-      nav.navbar {
-        flex-wrap: wrap;
-      }
-      nav.navbar button {
-        flex: 1 1 100px;
-        margin-bottom: 0.5rem;
-      }
-    }
-  </style>
+  .skills {
+    display: flex; justify-content: center; gap: 2rem;
+    margin-top: 1rem; font-size: 3rem; flex-wrap: wrap;
+  }
+  .skills i {
+    color: var(--primary-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .skills i:hover {
+    color: var(--subtitle-color);
+    transform: scale(1.3);
+  }
 
+  .contact-links {
+    display: flex; gap: 1.5rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap;
+  }
+  .contact-links a {
+    font-size: 1.8rem; color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .contact-links a:hover {
+    transform: scale(1.2);
+  }
+
+  footer.footer { text-align: center; font-size: 0.9rem; color: #888; margin-top: 2rem; }
+</style>
 </head>
 <body>
 
-  <div class="container">
-
-    <div class="hero">
-      <img src="images/my-photo.jpg" alt="Sharad Karmacharya" class="hero-img" />
-      <h1>Hi, I'm Sharad Karmacharya</h1>
-      <p class="hero-subtitle">CS student & aspiring developer passionate about turning ideas into code</p>
-    </div>
-
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <button class="nav-btn active" data-target="about">About Me</button>
-      <button class="nav-btn" data-target="projects">Projects</button>
-      <button class="nav-btn" data-target="contact">Contact Me</button>
-    </nav>
-
-    <div class="slides">
-
-      <section class="slide active" id="about" tabindex="0" aria-labelledby="about-heading" role="region">
-        <h2 id="about-heading">About Me</h2>
-        <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
-      </section>
-
-      <section class="slide" id="projects" tabindex="0" aria-labelledby="projects-heading" role="region">
-        <h2 id="projects-heading">Projects</h2>
-        <div class="projects">
-          <div class="project-card">
-            <h3>MyFirstProject</h3>
-            <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
-          </div>
-          <div class="project-card">
-            <h3>Second Project</h3>
-            <p>More projects coming soon! Stay tuned.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide" id="contact" tabindex="0" aria-labelledby="contact-heading" role="region">
-        <h2 id="contact-heading">Contact Me</h2>
-        <p>Feel free to reach out to me on any platform below!</p>
-        <div class="contact-links">
-          <a href="mailto:sharadkarmachrya.63@gmail.com" target="_blank" aria-label="Email Sharad Karmacharya" rel="noopener noreferrer">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank" aria-label="Facebook profile" rel="noopener noreferrer">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank" aria-label="YouTube channel" rel="noopener noreferrer">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="https://www.instagram.com/_sharadkarma_/" target="_blank" aria-label="Instagram profile" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank" aria-label="Twitter profile" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn profile" rel="noopener noreferrer">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub profile" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </section>
-
-    </div>
-
-    <footer class="footer" role="contentinfo">
-      <p>© 2025 Sharad Karmacharya. All rights reserved.</p>
-    </footer>
-
+<div class="container">
+  <div style="display:flex; justify-content: flex-end;">
+    <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+  </div>
+  <div class="hero">
+    <img src="images/my-photo.jpg" alt="Sharad Karmacharya" class="hero-img" />
+    <h1>Hi, I'm Sharad Karmacharya</h1>
+    <p class="hero-subtitle"><span id="typed"></span></p>
   </div>
 
-  <script>
-    // Navigation buttons to switch slides
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const slides = document.querySelectorAll('.slide');
+  <nav class="navbar" role="navigation">
+    <button class="nav-btn active" data-target="about">About Me</button>
+    <button class="nav-btn" data-target="projects">Projects</button>
+    <button class="nav-btn" data-target="skills">Skills</button>
+    <button class="nav-btn" data-target="contact">Contact Me</button>
+  </nav>
 
-    navButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Remove active classes
-        navButtons.forEach(btn => btn.classList.remove('active'));
-        slides.forEach(slide => slide.classList.remove('active'));
+  <div class="slides">
+    <section class="slide active" id="about">
+      <h2>About Me</h2>
+      <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
+    </section>
+    <section class="slide" id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>MyFirstProject</h3>
+          <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="project-card">
+          <h3>Second Project</h3>
+          <p>More projects coming soon! Stay tuned.</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide" id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <i class="fab fa-html5" title="HTML5"></i>
+        <i class="fab fa-css3-alt" title="CSS3"></i>
+        <i class="fab fa-js" title="JavaScript"></i>
+        <i class="fab fa-python" title="Python"></i>
+        <i class="fab fa-github" title="Git & GitHub"></i>
+      </div>
+    </section>
+    <section class="slide" id="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out to me on any platform below!</p>
+      <div class="contact-links">
+        <a href="mailto:sharadkarmachrya.63@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/_sharadkarma_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/sharadkarma" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </section>
+  </div>
 
-        // Add active to clicked button and corresponding slide
-        button.classList.add('active');
-        const targetId = button.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('active');
+  <footer class="footer">
+    <p>© 2025 Sharad Karmacharya. All rights reserved.</p>
+  </footer>
+</div>
 
-        // Focus slide for accessibility
-        document.getElementById(targetId).focus();
-      });
+<script>
+  new Typed('#typed', {
+    strings: ["CS student in Germany", "Aspiring developer", "Turning ideas into code"],
+    typeSpeed: 60, backSpeed: 30, loop: true
+  });
+
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const slides = document.querySelectorAll('.slide');
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      slides.forEach(slide => slide.classList.remove('active'));
+      button.classList.add('active');
+      document.getElementById(button.dataset.target).classList.add('active');
     });
-  </script>
+  });
 
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    themeToggle.innerHTML = document.body.classList.contains('light-mode')
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+  });
+</script>
 </body>
 </html>
+
 
 
 
