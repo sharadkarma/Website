@@ -161,6 +161,14 @@ p {
   transform: scale(1.15);
 }
 
+/* Footer */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
 /* Responsive */
 @media(max-width: 600px) {
   h1 {
