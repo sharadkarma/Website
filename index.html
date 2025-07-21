@@ -16,75 +16,89 @@
 </head>
 <body>
 
-  <div class="container">
+  <main class="container">
 
-    <div class="hero">
+    <section class="hero" aria-label="Introduction">
       <img src="images/my-photo.jpg" alt="Sharad Karmacharya" class="hero-img" />
       <h1>Hi, I'm Sharad Karmacharya</h1>
-      <p class="hero-subtitle">CS student & aspiring developer passionate about turning ideas into code</p>
-      <a href="#projects" class="btn">View My Projects</a>
-    </div>
+      <p class="hero-subtitle" aria-live="polite">CS student & aspiring developer passionate about turning ideas into code</p>
+      <a href="#projects" class="btn" role="button">View My Projects</a>
+    </section>
 
-    <h2>About Me</h2>
-    <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
+    </section>
 
-    <h2 id="projects">Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>MyFirstProject</h3>
-        <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="projects">
+        <article class="project-card" tabindex="0">
+          <h3>MyFirstProject</h3>
+          <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
+        </article>
+        <article class="project-card" tabindex="0">
+          <h3>Second Project</h3>
+          <p>More projects coming soon! Stay tuned.</p>
+        </article>
       </div>
-      <div class="project-card">
-        <h3>Second Project</h3>
-        <p>More projects coming soon! Stay tuned.</p>
-      </div>
-    </div>
+    </section>
 
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out to me on any platform below!</p>
-    <div class="contact-links">
-      <a href="mailto:sharadkarmachrya.63@gmail.com" target="_blank" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.instagram.com/_sharadkarma_/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank" aria-label="Twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-      <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <p>Feel free to reach out to me on any platform below!</p>
+      <nav class="contact-links" aria-label="Social media and contact links">
+        <a href="mailto:sharadkarmachrya.63@gmail.com" target="_blank" aria-label="Email Sharad Karmacharya" rel="noopener noreferrer">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank" aria-label="Facebook profile" rel="noopener noreferrer">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank" aria-label="YouTube channel" rel="noopener noreferrer">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/_sharadkarma_/" target="_blank" aria-label="Instagram profile" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank" aria-label="Twitter profile" rel="noopener noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn profile" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/sharadkarma" target="_blank" aria-label="GitHub profile" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+      </nav>
+    </section>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <p>© 2025 Sharad Karmacharya. All rights reserved.</p>
     </footer>
 
-  </div>
+  </main>
 
   <script>
-    const observer = new IntersectionObserver(entries => {
+    // Intersection Observer to add 'visible' class for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          // Optionally unobserve if you want animation only once
+          observer.unobserve(entry.target);
         }
       });
-    });
-    document.querySelectorAll('.container, .project-card, .contact-links a').forEach(el => observer.observe(el));
+    }, { threshold: 0.1 });
+
+    // Observe container, each project card, and contact links for animation
+    const elementsToObserve = document.querySelectorAll('.container, .project-card, .contact-links a');
+    elementsToObserve.forEach(el => observer.observe(el));
   </script>
 
 </body>
 </html>
+
+
 
 
 
