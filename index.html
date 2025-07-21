@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <div class="container visible">
+  <div class="container">
 
     <div class="hero">
       <img src="images/my-photo.jpg" alt="Sharad Karmacharya" class="hero-img" />
@@ -66,13 +66,25 @@
       </a>
     </div>
 
-    <footer>
+    <footer class="footer">
       <p>© 2025 Sharad Karmacharya. All rights reserved.</p>
     </footer>
 
   </div>
 
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('.container, .project-card, .contact-links a').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
+
 
 
