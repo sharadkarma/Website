@@ -1,5 +1,9 @@
+
+
+
+
 <!DOCTYPE html>
-<html lang"en">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,7 +15,7 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<!-- Typed.js -->
+<!-- Typed.js for typing effect -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 <!-- SEO & Open Graph -->
@@ -41,9 +45,7 @@
     --card-bg: #fff;
     --subtitle-color: #555;
   }
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -56,24 +58,10 @@
     padding: 0 1rem;
     transition: background 0.5s ease, color 0.5s ease;
   }
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  a:hover,
-  a:focus {
-    text-decoration: underline;
-    outline: none;
-  }
-  h1,
-  h2,
-  h3 {
-    margin: 0.5rem 0;
-  }
-  p {
-    line-height: 1.5;
-    color: var(--subtitle-color);
-  }
+  a { color: var(--primary-color); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { margin: 0.5rem 0; }
+  p { line-height: 1.5; color: var(--subtitle-color); }
 
   .container {
     max-width: 900px;
@@ -82,47 +70,28 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 0 30px var(--primary-color);
-    margin: 3rem 0 4rem;
+    margin: 3rem 0;
   }
 
   .hero {
-    text-align: center;
-    margin-bottom: 2rem;
+    text-align: center; margin-bottom: 2rem;
   }
   .hero-img {
-    width: 130px;
-    height: 130px;
+    width: 130px; height: 130px;
     border-radius: 50%;
     border: 3px solid var(--primary-color);
-    object-fit: cover;
-    margin-bottom: 1rem;
+    object-fit: cover; margin-bottom: 1rem;
     animation: pulse 2s infinite;
   }
   @keyframes pulse {
-    0% {
-      box-shadow: 0 0 15px var(--primary-color);
-    }
-    50% {
-      box-shadow: 0 0 25px var(--primary-color);
-    }
-    100% {
-      box-shadow: 0 0 15px var(--primary-color);
-    }
+    0% { box-shadow: 0 0 15px var(--primary-color); }
+    50% { box-shadow: 0 0 25px var(--primary-color); }
+    100% { box-shadow: 0 0 15px var(--primary-color); }
   }
-  .hero-subtitle {
-    font-weight: 300;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: var(--subtitle-color);
-    min-height: 1.4rem; /* prevent layout shift */
-  }
+  .hero-subtitle { font-weight: 300; font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--subtitle-color); }
 
   nav.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem; flex-wrap: wrap;
   }
   nav.navbar button {
     background: transparent;
@@ -137,13 +106,11 @@
     flex: 1 1 100px;
   }
   nav.navbar button:hover,
-  nav.navbar button:focus,
   nav.navbar button.active {
     background: var(--primary-color);
     color: var(--bg-color);
     box-shadow: 0 0 10px var(--primary-color);
     transform: scale(1.1);
-    outline: none;
   }
 
   .toggle-theme {
@@ -156,254 +123,160 @@
     margin-right: 0.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
   }
-  .toggle-theme:hover,
-  .toggle-theme:focus {
+  .toggle-theme:hover {
     color: var(--primary-color);
     transform: rotate(20deg);
-    outline: none;
   }
 
-  .slides {
-    position: relative;
-    min-height: 300px;
-  }
+  .slides { position: relative; min-height: 300px; }
   .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    visibility: hidden;
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0; visibility: hidden;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
     overflow-y: auto;
   }
   .slide.active {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; visibility: visible;
     transform: translateY(0);
     position: relative;
   }
 
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
   .project-card {
     background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 12px;
+    padding: 1rem; border-radius: 12px;
     box-shadow: 0 0 10px var(--primary-color);
     transition: transform 0.3s ease;
   }
   body.light-mode .project-card {
     background: #fafafa;
   }
-  .project-card:hover,
-  .project-card:focus-within {
+  .project-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 0 20px var(--primary-color);
-    outline: none;
   }
 
   .skills {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-    font-size: 3rem;
-    flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 2rem;
+    margin-top: 1rem; font-size: 3rem; flex-wrap: wrap;
   }
   .skills i {
     color: var(--primary-color);
     transition: transform 0.3s ease, color 0.3s ease;
   }
-  .skills i:hover,
-  .skills i:focus {
+  .skills i:hover {
     color: var(--subtitle-color);
     transform: scale(1.3);
-    outline: none;
   }
 
   .contact-links {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+    display: flex; gap: 1.5rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap;
   }
   .contact-links a {
-    font-size: 1.8rem;
-    color: var(--primary-color);
+    font-size: 1.8rem; color: var(--primary-color);
     transition: color 0.3s ease, transform 0.3s ease;
   }
-  .contact-links a:hover,
-  .contact-links a:focus {
+  .contact-links a:hover {
     transform: scale(1.2);
-    outline: none;
   }
 
-  footer.footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: auto;
-    padding-bottom: 1rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .nav-btn {
-      flex: 1 1 100%;
-    }
-  }
-
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
+  footer.footer { text-align: center; font-size: 0.9rem; color: #888; margin-top: 2rem; }
 </style>
 </head>
 <body>
 
-<div class="container" role="main" aria-label="Portfolio content">
+<div class="container">
   <div style="display:flex; justify-content: flex-end;">
-    <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme">
-      <i class="fas fa-moon" aria-hidden="true"></i>
-    </button>
+    <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
   </div>
-  <section class="hero" aria-labelledby="hero-title">
-    <img
-      src="images/my-photo.jpg"
-      alt="Photo of Sharad Karmacharya"
-      class="hero-img"
-      loading="lazy"
-    />
-    <h1 id="hero-title" tabindex="0">Sharad Karmacharya</h1>
-    <p class="hero-subtitle" id="typed"></p>
-  </section>
+  <div class="hero">
+    <img src="images/my-photo.jpg" alt="Sharad Karmacharya" class="hero-img" />
+    <h1>Hi, I'm Sharad Karmacharya</h1>
+    <p class="hero-subtitle"><span id="typed"></span></p>
+  </div>
 
-  <nav class="navbar" role="navigation" aria-label="Primary navigation">
-    <button class="nav-btn active" data-slide="home" aria-controls="slide-home" aria-selected="true">Home</button>
-    <button class="nav-btn" data-slide="projects" aria-controls="slide-projects" aria-selected="false">Projects</button>
-    <button class="nav-btn" data-slide="skills" aria-controls="slide-skills" aria-selected="false">Skills</button>
-    <button class="nav-btn" data-slide="contact" aria-controls="slide-contact" aria-selected="false">Contact</button>
+  <nav class="navbar" role="navigation">
+    <button class="nav-btn active" data-target="about">About Me</button>
+    <button class="nav-btn" data-target="projects">Projects</button>
+    <button class="nav-btn" data-target="skills">Skills</button>
+    <button class="nav-btn" data-target="contact">Contact Me</button>
   </nav>
 
-  <section class="slides" tabindex="0" aria-live="polite">
-    <article id="slide-home" class="slide active" role="region" aria-labelledby="home-title">
-      <h2 id="home-title">Welcome</h2>
-      <p>
-        I am a passionate computer science student and developer based in Germany. I love building apps and exploring new technologies.
-      </p>
-    </article>
-
-    <article id="slide-projects" class="slide" role="region" aria-labelledby="projects-title">
-      <h2 id="projects-title">Projects</h2>
+  <div class="slides">
+    <section class="slide active" id="about">
+      <h2>About Me</h2>
+      <p>I'm currently pursuing my Bachelor's in Computer Science in Germany. I enjoy coding, learning new tech, and creating real-world applications.</p>
+    </section>
+    <section class="slide" id="projects">
+      <h2>Projects</h2>
       <div class="projects">
-        <div class="project-card" tabindex="0">
-          <h3>Portfolio Website</h3>
-          <p>My personal portfolio showcasing my skills and projects.</p>
-          <a href="https://github.com/sharadkarmacharya/portfolio" target="_blank" rel="noopener noreferrer" aria-label="View Portfolio Website project on GitHub">GitHub</a>
+        <div class="project-card">
+          <h3>MyFirstProject</h3>
+          <p>A simple portfolio website built with HTML, CSS, and JavaScript.</p>
         </div>
-        <div class="project-card" tabindex="0">
-          <h3>ChatGPT Android App</h3>
-          <p>Android app using OpenAI API for AI chat experience.</p>
-          <a href="https://github.com/sharadkarmacharya/chatgpt-android" target="_blank" rel="noopener noreferrer" aria-label="View ChatGPT Android App project on GitHub">GitHub</a>
-        </div>
-        <div class="project-card" tabindex="0">
-          <h3>Karma Products App</h3>
-          <p>Mobile app managing second-hand products for my business.</p>
-          <a href="#" aria-disabled="true" tabindex="-1" aria-label="Karma Products app link not available yet">Coming Soon</a>
+        <div class="project-card">
+          <h3>Second Project</h3>
+          <p>More projects coming soon! Stay tuned.</p>
         </div>
       </div>
-    </article>
-
-    <article id="slide-skills" class="slide" role="region" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
-      <div class="skills" role="list" aria-label="Programming languages and tools">
-        <i class="fab fa-python" aria-label="Python" role="listitem" tabindex="0"></i>
-        <i class="fab fa-java" aria-label="Java" role="listitem" tabindex="0"></i>
-        <i class="fab fa-js" aria-label="JavaScript" role="listitem" tabindex="0"></i>
-        <i class="fab fa-html5" aria-label="HTML5" role="listitem" tabindex="0"></i>
-        <i class="fab fa-css3-alt" aria-label="CSS3" role="listitem" tabindex="0"></i>
-        <i class="fab fa-android" aria-label="Android development" role="listitem" tabindex="0"></i>
-        <i class="fab fa-git-alt" aria-label="Git version control" role="listitem" tabindex="0"></i>
+    </section>
+    <section class="slide" id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <i class="fab fa-html5" title="HTML5"></i>
+        <i class="fab fa-css3-alt" title="CSS3"></i>
+        <i class="fab fa-js" title="JavaScript"></i>
+        <i class="fab fa-python" title="Python"></i>
+        <i class="fab fa-github" title="Git & GitHub"></i>
       </div>
-    </article>
-
-    <article id="slide-contact" class="slide" role="region" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Me</h2>
-      <p>Feel free to reach out via email or social media.</p>
+    </section>
+    <section class="slide" id="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out to me on any platform below!</p>
       <div class="contact-links">
-        <a href="mailto:sharad.karmacharya@example.com" aria-label="Send email to Sharad Karmacharya" tabindex="0"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/sharadkarmacharya" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile" tabindex="0"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/sharadkarmacharya" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile" tabindex="0"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/sharadkarmacharya" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile" tabindex="0"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:sharadkarmachrya.63@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/_sharadkarma_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363?utm_source=share" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/sharadkarma" target="_blank"><i class="fab fa-github"></i></a>
       </div>
-    </article>
-  </section>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Sharad Karmacharya. All rights reserved.</p>
+  </footer>
 </div>
 
-<footer class="footer" role="contentinfo">
-  &copy; 2025 Sharad Karmacharya. All rights reserved.
-</footer>
-
 <script>
-  // Typed.js initialization
-  document.addEventListener("DOMContentLoaded", () => {
-    const typed = new Typed("#typed", {
-      strings: ["Developer.", "Designer.", "Student.", "Tech Enthusiast."],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 1500,
-      loop: true,
-      showCursor: true,
-      cursorChar: "|",
-    });
+  new Typed('#typed', {
+    strings: ["CS student in Germany", "Aspiring developer", "Turning ideas into code"],
+    typeSpeed: 60, backSpeed: 30, loop: true
+  });
 
-    // Dark/Light theme toggle
-    const toggleBtn = document.getElementById("themeToggle");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      // Swap icon
-      toggleBtn.innerHTML = document.body.classList.contains("light-mode")
-        ? '<i class="fas fa-sun" aria-hidden="true"></i>'
-        : '<i class="fas fa-moon" aria-hidden="true"></i>';
-    });
-
-    // Navigation buttons and slide switching
-    const navButtons = document.querySelectorAll(".nav-btn");
-    const slides = document.querySelectorAll(".slide");
-
-    navButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        // Remove active from all buttons and slides
-        navButtons.forEach((b) => {
-          b.classList.remove("active");
-          b.setAttribute("aria-selected", "false");
-        });
-        slides.forEach((slide) => slide.classList.remove("active"));
-
-        // Activate clicked button and corresponding slide
-        btn.classList.add("active");
-        btn.setAttribute("aria-selected", "true");
-        const slideId = `slide-${btn.dataset.slide}`;
-        document.getElementById(slideId).classList.add("active");
-        document.getElementById(slideId).focus();
-      });
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const slides = document.querySelectorAll('.slide');
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      slides.forEach(slide => slide.classList.remove('active'));
+      button.classList.add('active');
+      document.getElementById(button.dataset.target).classList.add('active');
     });
   });
-</script>
 
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    themeToggle.innerHTML = document.body.classList.contains('light-mode')
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+  });
+</script>
 </body>
 </html>
-
-
-
-
-
 
 

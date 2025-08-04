@@ -1,3 +1,5 @@
+
+
 /* Variables */
 :root {
   --color-primary: #ffd700;
@@ -7,7 +9,7 @@
   --color-text-light: #eee;
   --color-text-muted: #ccc;
   --color-container-bg: rgba(30, 30, 60, 0.85);
-  --color-container-shadow: rgba(255, 215, 0, 0.8); /* better alpha usage */
+  --color-container-shadow: #ffd700cc;
   --font-family: 'Poppins', sans-serif;
   --transition-fast: 0.3s ease;
   --transition-smooth: 1.5s ease;
@@ -73,9 +75,8 @@ a:focus-visible {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid transparent;
-  background: linear-gradient(135deg, var(--color-primary), #fff);
-  /* replaced box-shadow color construction */
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.53);
+  background: linear-gradient(135deg, var(--color-primary), #fff) border-box;
+  box-shadow: 0 0 15px var(--color-primary + '88'); /* fallback for alpha */
   margin-bottom: 1rem;
   opacity: 0;
   transform: scale(0.8);
@@ -125,11 +126,10 @@ h1.visible {
   color: #333;
   font-weight: 600;
   border-radius: 8px;
-  /* fixed alpha in box-shadow */
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.67);
+  box-shadow: 0 0 10px var(--color-primary + 'aa');
   cursor: pointer;
   user-select: none;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-smooth);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-smooth), transform var(--transition-smooth);
   opacity: 0;
   transform: translateY(20px);
   will-change: opacity, transform;
@@ -192,8 +192,7 @@ p.visible {
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  /* fixed alpha for box-shadow */
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.27);
+  box-shadow: 0 0 10px var(--color-primary + '44');
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity 1.2s ease;
   text-align: center;
   opacity: 0;
@@ -207,7 +206,7 @@ p.visible {
 .project-card:hover,
 .project-card:focus-within {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 20px var(--color-primary + 'cc');
 }
 .project-card h3 {
   margin-bottom: 0.8rem;
@@ -234,8 +233,7 @@ p.visible {
   background: rgba(255, 255, 255, 0.1);
   padding: 15px 18px;
   border-radius: 50%;
-  /* fixed alpha */
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.67);
+  box-shadow: 0 0 15px var(--color-primary + 'aa');
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast), opacity var(--transition-smooth);
   opacity: 0;
   transform: translateY(20px);
@@ -312,10 +310,7 @@ p.visible {
 [data-theme="light"] .contact-links a {
   background: rgba(0, 0, 0, 0.1);
   color: var(--color-primary);
-}
-
-
-
+}   this is my style.css make it better
 
 
 
