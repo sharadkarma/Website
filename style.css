@@ -1,5 +1,3 @@
-
-
 /* Variables */
 :root {
   --color-primary: #ffd700;
@@ -32,18 +30,21 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6; /* improved readability */
 }
 
+/* Link styles */
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 a:hover,
 a:focus-visible {
   color: #fff;
   outline-offset: 2px;
   outline: 2px solid var(--color-primary);
+  transform: scale(1.05); /* subtle scale on hover */
 }
 
 /* Container */
@@ -75,13 +76,15 @@ a:focus-visible {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid transparent;
+  /* fixed invalid box-shadow with rgba() */
   background: linear-gradient(135deg, var(--color-primary), #fff) border-box;
-  box-shadow: 0 0 15px var(--color-primary + '88'); /* fallback for alpha */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.53); /* #ffd700 + 88 */
   margin-bottom: 1rem;
   opacity: 0;
   transform: scale(0.8);
   transition: opacity var(--transition-smooth), transform var(--transition-smooth);
   will-change: opacity, transform;
+  transform-origin: center center; /* smoother scale effect */
 }
 .hero-img.visible {
   opacity: 1;
@@ -92,6 +95,8 @@ h1 {
   font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--color-primary);
   margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.3s ease, transform 1.3s ease;
@@ -104,7 +109,7 @@ h1.visible {
 
 .hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text-light);
   margin: 0 auto 1.5rem;
   max-width: 650px;
@@ -112,6 +117,7 @@ h1.visible {
   transform: translateY(20px);
   transition: opacity 1.3s ease, transform 1.3s ease;
   will-change: opacity, transform;
+  letter-spacing: 0.02em;
 }
 .hero-subtitle.visible {
   opacity: 1;
@@ -126,14 +132,19 @@ h1.visible {
   color: #333;
   font-weight: 600;
   border-radius: 8px;
-  box-shadow: 0 0 10px var(--color-primary + 'aa');
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.67); /* improved alpha */
   cursor: pointer;
   user-select: none;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-smooth), transform var(--transition-smooth);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    opacity var(--transition-smooth);
   opacity: 0;
   transform: translateY(20px);
   will-change: opacity, transform;
   border: none;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 .btn.visible {
   opacity: 1;
@@ -154,6 +165,7 @@ h2 {
   margin: 3rem 0 1rem;
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: 0.3rem;
+  font-weight: 600;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.2s ease, transform 1.2s ease;
@@ -168,7 +180,7 @@ h2.visible {
 p {
   font-weight: 300;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text-light);
   margin-bottom: 1.5rem;
   opacity: 0;
@@ -192,12 +204,14 @@ p.visible {
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 10px var(--color-primary + '44');
+  /* fixed invalid rgba */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.27);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity 1.2s ease;
   text-align: center;
   opacity: 0;
   transform: translateY(30px);
   will-change: opacity, transform;
+  cursor: pointer;
 }
 .project-card.visible {
   opacity: 1;
@@ -206,11 +220,13 @@ p.visible {
 .project-card:hover,
 .project-card:focus-within {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 20px var(--color-primary + 'cc');
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  outline-offset: 4px;
+  outline: 2px solid var(--color-primary-light);
 }
 .project-card h3 {
   margin-bottom: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.3rem;
 }
 .project-card p {
@@ -233,8 +249,12 @@ p.visible {
   background: rgba(255, 255, 255, 0.1);
   padding: 15px 18px;
   border-radius: 50%;
-  box-shadow: 0 0 15px var(--color-primary + 'aa');
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast), opacity var(--transition-smooth);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.67);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    color var(--transition-fast),
+    opacity var(--transition-smooth);
   opacity: 0;
   transform: translateY(20px);
   display: inline-flex;
@@ -266,6 +286,7 @@ p.visible {
   transform: translateY(20px);
   transition: opacity var(--transition-smooth), transform var(--transition-smooth);
   will-change: opacity, transform;
+  user-select: none;
 }
 .footer.visible {
   opacity: 1;
@@ -305,12 +326,16 @@ p.visible {
 [data-theme="light"] .project-card {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 [data-theme="light"] .contact-links a {
   background: rgba(0, 0, 0, 0.1);
   color: var(--color-primary);
-}   this is my style.css make it better
+  box-shadow: none;
+}
+
+
 
 
 
