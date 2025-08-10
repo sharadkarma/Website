@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+:root {
+    --background: 0 0% 99%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 97.5%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 214 32% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Teal accent */
+    --accent: 174 72% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    /* Use accent for focus ring to match the theme */
+    --ring: 174 72% 45%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+.dark {
+    --background: 230 22% 12%;
+    --foreground: 210 40% 96%;
+
+    --card: 230 22% 12%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 230 22% 12%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 224 18% 18%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 224 18% 18%;
+    --muted-foreground: 215 20.2% 72%;
+
+    /* Match accent to light mode but slightly brighter in dark */
+    --accent: 174 80% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 40.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 15% 22%;
+    --input: 225 15% 22%;
+    --ring: 174 80% 54%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 262 83% 66%;
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, background 0.6s ease;
+    /* Subtle, performant background aesthetics for both themes */
+    background-image:
+      radial-gradient(1200px 600px at 0% -10%, hsl(var(--accent) / 0.10), transparent 60%),
+      radial-gradient(1000px 500px at 100% -10%, hsl(var(--ring) / 0.12), transparent 55%);
+    background-attachment: fixed;
+  }
+}
