@@ -1,111 +1,31 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* General Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { transition: background 0.5s, color 0.5s; }
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Dark & Light mode */
+body.light { background: #f5f5f5; color: #222; }
+body.dark { background: #121212; color: #fff; }
 
-@layer base {
-:root {
-    --background: 0 0% 99%;
-    --foreground: 222.2 47.4% 11.2%;
+/* Theme Toggle */
+.theme-toggle { position: fixed; top: 20px; right: 20px; z-index: 10; }
+#theme-button { padding: 10px; cursor: pointer; font-size: 1.2rem; }
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+/* Hero Section */
+#hero { position: relative; min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
+#particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+.hero-content img { width: 180px; height: 180px; border-radius: 50%; margin-bottom: 20px; }
+.hero-content h1 { font-size: 2.8rem; margin-bottom: 10px; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 20px; }
+.social-links a { margin: 0 10px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.social-links a:hover { color: #ff4d4d; }
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+/* Projects Section */
+#projects { padding: 80px 20px; text-align: center; }
+.project-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.project-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 280px; transition: transform 0.3s, background 0.3s; }
+.project-card:hover { transform: translateY(-10px); background: linear-gradient(135deg, #ff4d4d, #f9cb28); color: #fff; }
+.btn { display: inline-block; padding: 10px 20px; margin-top: 10px; border-radius: 50px; text-decoration: none; font-weight: bold; background: linear-gradient(45deg, #ff4d4d, #f9cb28); color: #fff; transition: 0.4s; }
+.btn:hover { filter: brightness(1.2); }
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 97.5%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 214 32% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    /* Teal accent */
-    --accent: 174 72% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    /* Use accent for focus ring to match the theme */
-    --ring: 174 72% 45%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 262 83% 58%;
-  }
-
-.dark {
-    --background: 230 22% 12%;
-    --foreground: 210 40% 96%;
-
-    --card: 230 22% 12%;
-    --card-foreground: 210 40% 96%;
-
-    --popover: 230 22% 12%;
-    --popover-foreground: 210 40% 96%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 224 18% 18%;
-    --secondary-foreground: 210 40% 96%;
-
-    --muted: 224 18% 18%;
-    --muted-foreground: 215 20.2% 72%;
-
-    /* Match accent to light mode but slightly brighter in dark */
-    --accent: 174 80% 54%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 40.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 225 15% 22%;
-    --input: 225 15% 22%;
-    --ring: 174 80% 54%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 262 83% 66%;
-  }
-}
-
-@layer base {
-  html {
-    @apply scroll-smooth;
-  }
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans;
-    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, background 0.6s ease;
-    /* Subtle, performant background aesthetics for both themes */
-    background-image:
-      radial-gradient(1200px 600px at 0% -10%, hsl(var(--accent) / 0.10), transparent 60%),
-      radial-gradient(1000px 500px at 100% -10%, hsl(var(--ring) / 0.12), transparent 55%);
-    background-attachment: fixed;
-  }
-}
+/* Responsive */
+@media(max-width:768px){ .project-cards { flex-direction: column; } }

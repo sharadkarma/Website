@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sharad Karmacharya | Portfolio</title>
-    <meta name="description" content="Portfolio of Sharad Karmacharya — projects, skills, and contact." />
-    <meta name="author" content="Sharad Karmacharya" />
-    <link rel="canonical" href="/" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharad Karma | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Dark/Light mode toggle -->
+  <div class="theme-toggle">
+    <button id="theme-button">🌙</button>
+  </div>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Hero Section -->
+  <section id="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="IMG-20250212-WA0000.jpg" alt="Sharad Karma">
+      <h1>Hi, I'm Sharad Karma</h1>
+      <p>Developer | Tech Enthusiast | Creator</p>
+      <div class="social-links">
+        <a href="https://github.com/sharadkarma" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/sharad-karmacharya-008148363" target="_blank">LinkedIn</a>
+        <a href="https://www.facebook.com/share/19SHEHbFfr/" target="_blank">Facebook</a>
+        <a href="https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/_sharadkarma_/" target="_blank">Instagram</a>
+        <a href="https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09" target="_blank">X</a>
+        <a href="mailto:sharadkarma@example.com">Gmail</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:title" content="Sharad Karmacharya | Portfolio" />
-    <meta property="og:description" content="CS student & aspiring developer passionate about turning ideas into code." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 data-aos="fade-up">Projects</h2>
+    <div class="project-cards">
+      <div class="project-card" data-tilt data-aos="fade-up">
+        <h3>Guess Game</h3>
+        <p>A simple interactive guessing game.</p>
+        <a class="btn" href="https://github.com/sharadkarma/guess_game.py" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project-card coming-soon" data-aos="fade-up">
+        <h3>Coming Soon</h3>
+        <p>Exciting project under development!</p>
+      </div>
+    </div>
+  </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sharad Karmacharya | Portfolio" />
-    <meta name="twitter:description" content="CS student & aspiring developer passionate about turning ideas into code." />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sharad Karmacharya",
-      "url": "https://yourdomain.com",
-      "jobTitle": "Computer Science Student",
-      "sameAs": [
-        "https://github.com/sharadkarma",
-        "https://www.linkedin.com/in/sharad-karmacharya-008148363",
-        "https://www.facebook.com/share/19SHEHbFfr/",
-        "https://youtube.com/@sharadkarmacharya?si=UzjkatMBHcAr63h9",
-        "https://www.instagram.com/_sharadkarma_/",
-        "https://x.com/Sharadkarma351?t=62JAUTVwgjci6rB-FlpoJA&s=09"
-      ]
-    }
-    </script>
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
